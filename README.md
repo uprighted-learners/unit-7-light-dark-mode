@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# React Dark and Light Mode
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objective
 
-## Available Scripts
+To understand how to use the React.js front-end library to switch the style of a webpage from a light theme to a dark theme.
 
-In the project directory, you can run:
+## Learning
 
-### `npm start`
+In this lab, we will create a small React application that is able to use a component to switch the style of other components within the page. You will use inline styles, and then optionally understand how to add a `.someClassName` to react components to use CSS style sheets.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Topics:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React State; `useState` and `setState`.
+- React Style; `style` and `className`props.
+- Passing `props` to child components.
+- React and CSS
 
-### `npm test`
+## Achieving
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Your work will result in:
 
-### `npm run build`
+- A website whose styles can be changed by clicking a button.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Procedure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Create the child components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ] The first thing you need to do is create three new files: `Header.jsx`, `Content.jsx`, and `Footer.jsx`. These will need to contain functional components that have the parameter of `props`. Reference `App.jsx` for what you need to set these up.
+- [ ] `Header.jsx` should contain a `<h1>` title, and an image.
+- [ ] `Content.jsx` should contain some `<p>` components with text.
+- [ ] `Footer.jsx` should contain the author's name, and the date.
 
-### `npm run eject`
+### Place the three child components within the parent App
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [ ] We will need to import our child components into `App.jsx`. We will also need to place them in `App`'s return statement.
+- [ ] In the return statement, these three components will need to be wrapped in a div with a style prop of `styleMode`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Create inline style objects
+- [ ] We wil need two objects, `darkMode` and `lightMode` that contain styles within. `darkMode` should set the background color to black and the font color to white. `lightMode` should set the background color to white and the font color to black.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Create the `styleMode` state
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [ ] Create a new state variable named `styleMode` with an initial state of `lightMode`.
 
-## Learn More
+### Add the mode switching button
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [ ] Add a `<button>` element above the `<Header />` that toggles `styleMode`'s state.
+- [ ] This button will need an `onClick` event that sets the current style. The callback function passed to `onClick` will need to use conditional logic to check `styleMode`and use `setStyleMode()` to change it to the opposite of what it currently is.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Passing props to child components
 
-### Code Splitting
+- [ ] In `<Header />`,`<Content />`, `<Footer />`, we will need to pass `styleMode` as a prop to these components.
+```js
+<Example exampleProp = {exampleProp} />
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Using props in our child components
 
-### Analyzing the Bundle Size
+- [ ] In our three components, we will need a `<div>` that wraps all the other elements within the return statement. This `<div>` will have a style prop of `props.styleMode`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Test the button!
 
-### Making a Progressive Web App
+- [ ] When you click your button, the style of the page should toggle between your two style objects.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Review
 
-### Advanced Configuration
+In this lab, we created a `styleMode` state and passed it as a prop to child components in order to toggle between dark and light mode on our page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The software should:
 
-### Deployment
+- Be a website with three different components, `<Header />`, `<Content />`, `<Footer />` rendering on the page.
+- Pass a `styleMode` state as a prop to the the child components.
+- Have the style of the child components changed dynamically utilizing `props`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Going Further
 
-### `npm run build` fails to minify
+- How could you leverage a CSS file with existing declarations? Could you apply a CSS `class` to the JSX components?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- What would be a downside to applying inline-styles to a React component? Remember that `style` is a prop, and props in React are immutable. What happens when you change them?
+
+> Hint: to add a class to a component, use the prop name `className` instead of the reserved word `class`. Remember that JSX runs within JavaScript.
