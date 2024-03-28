@@ -23,6 +23,10 @@ Your work will result in:
 
 ## Procedure
 
+## Starting up the React App
+- [ ] Once cloned, install the projects dependencies using `npm install` or `npm i`
+- [ ] Use `npm start` and visit the app on your browser at `localhost:3000`
+
 ### Create the child components
 
 - [ ] The first thing you need to do is create three new files: `Header.jsx`, `Content.jsx`, and `Footer.jsx`. These will need to contain functional components that have the parameter of `props`. Reference `App.jsx` for what you need to set these up.
