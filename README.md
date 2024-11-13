@@ -6,7 +6,7 @@ To understand how to use the React.js front-end library to switch the style of a
 
 ## Learning
 
-In this lab, we will create a small React application that is able to use a component to switch the style of other components within the page. You will use inline styles, and then optionally understand how to add a `.someClassName` to react components to use CSS style sheets.
+In this exercise, we will create a small React application that is able to use a component to switch the style of other components within the page. You will use inline styles, and then optionally understand how to add a `.someClassName` to react components to use CSS style sheets.
 
 Topics:
 
@@ -68,7 +68,7 @@ Your work will result in:
 
 ## Review
 
-In this lab, we created a `styleMode` state and passed it as a prop to child components in order to toggle between dark and light mode on our page.
+In this exercise, we created a `styleMode` state and passed it as a prop to child components in order to toggle between dark and light mode on our page.
 
 The software should:
 
